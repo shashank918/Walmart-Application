@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/loginpage_Css.css">
+
+    <script>
+        function checkform() {
+
+            var flag = true;
+            console.log("Carnumber length"+document.getElementById('cardnumber').value.length);
+
+            if(document.getElementById("cardnumber").value.length != 16)
+            {
+                alert("Cardnumber should have 16 digits");
+                flag = false;
+
+            }
+            else if(document.getElementById("expmonth").value.length != 2)
+            {
+                alert("Expiry month should have 2 digits");
+                flag = false;
+            }
+            else if(document.getElementById("expyear").value.length != 2)
+            {
+                alert("Expiry year should have 2 digits");
+                flag = false;
+            }
+            if(flag)
+            alert("Changes Effected Successfully");
+
+            return flag;
+        }
+    </script>
+</head>
+<body>
+
+<!--<h1 class="page-header">-->
+<!--Smart Portables-->
+<!--</h1>-->
+<section class="page-header">
+    <section class="row">
+        <header >
+
+            <aside id="companyname" class="col-md-5">
+                <a href="#" > Walmart<span id="logoextension">.com</span></a>
+            </aside>
+            <aside id="companycaption" class="col-md-5 col-md-offset-2">
+                The World's largest Retailer
+            </aside>
+
+        </header>
+    </section>
+</section>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Nav tabs -->
+            <div class="card">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Add Address</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Add Credit Card</a></li>
+                    <!--<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>-->
+                    <!--<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>-->
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="panel panel-primary " id="formcontainer">
+                            <div class="panel-heading">Add Address</div>
+                            <div class="panel-body">
+                                <form method="get" action="myaccount">
+                                    <div class="form-group">
+                                        <label for="locationid">location id </label>
+                                        <input type="text" class="form-control" id="locationid" name="locationid" placeholder="Required location id for update or delete" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City:</label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">Zipcode</label>
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" required>
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-success pull-right" name="method" onclick="alert('Address added successfully')" value="addaddress" style="margin-right: 3px;">Add</button>
+                                    <button type="submit" class="btn btn-success pull-right" name="method" onclick="alert('Address updated successfully')"  value="updateaddress" style="margin-right: 3px;">Update</button>
+                                    <button type="submit" class="btn btn-success pull-right" name="method" onclick="alert('Address deleted successfully')"  value="deleteaddress" style="margin-right: 3px;">Delete</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <div class="panel panel-primary " >
+                            <div class="panel-heading">Add Credit Card</div>
+                            <div class="panel-body">
+                                <form method="get" action="myaccount" onsubmit="return checkform();">
+                                    <div class="form-group">
+                                        <label for="prevcardnumber">Previous card number</label>
+                                        <input type="number" class="form-control" id="prevcardnumber" name="prevcardnumber" placeholder="Required only for update card" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardnumber">card number</label>
+                                        <input type="number" class="form-control" id="cardnumber" name="cardnumber" placeholder="Enter Card number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expmonth">Expiry Month</label>
+                                        <input type="number" class="form-control" id="expmonth" name="expmonth" placeholder="Enter Expiry Month" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expyear">Expiry Year</label>
+                                        <input type="number" class="form-control" id="expyear" name="expyear" placeholder="Enter Expiry Year" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success pull-right" name="method"  value="addcard" style="margin-right: 3px;">Add</button>
+                                    <button type="submit" class="btn btn-success pull-right" name="method"  value="updatecard" style="margin-right: 3px;">Update</button>
+                                    <button type="submit" class="btn btn-success pull-right"  name="method" value="deletecard" style="margin-right: 3px;">Delete</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

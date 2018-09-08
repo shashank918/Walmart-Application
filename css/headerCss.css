@@ -1,0 +1,107 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: white ;
+    overflow: hidden;
+
+
+    /*background-color: lightgrey;*/
+}
+
+
+#companyname a{
+    font-weight: 700;
+    font-size: 37px;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    color:#5f5f5f ;
+    margin-left: 20px;
+    line-height: 100px;
+    text-decoration: none;
+
+}
+
+#companyname{
+    float: left;
+}
+
+/*styling for .com*/
+#logoextension{
+    color:#4CAF50;
+}
+
+
+#companycaption{
+    /*margin-left: 800px;*/
+    line-height: 105px;
+    font-family: "Segoe UI",Arial,sans-serif;
+    letter-spacing: 4px;
+    font-weight: 400;
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#navigation{
+    background-color: #5f5f5f;
+    margin-bottom: 0px;
+
+}
+
+#navbar_left li a{
+    color: white;
+    font-size: 16px;
+
+}
+
+#navbar_left li a{
+    margin: 0px;
+}
+#navbar_right li a{
+    color: white;
+    font-size: 16px;
+}
+
+
+/*---------------------------------------------------------*/
+
+/*#sidebar{*/
+/*background-color: #f1f1f1;*/
+/*margin-top: 0px;*/
+/*text-align: left;*/
+/*width:200px;*/
+/*height: 420px;*/
+/*overflow-y: scroll;*/
+/*float: left;*/
+
+/*}*/
+
+/*#sidebar_itemlist{*/
+/*margin-left: 15px;*/
+/*list-style-type: none;*/
+
+/*}*/
+
+/*#sidebar_itemlist li a{*/
+
+/*font-family: "Segoe UI",Arial,sans-serif;*/
+/*text-decoration: none;*/
+/*display: block;*/
+/*font-size: 17px;*/
+/*color: #000;*/
+/*}*/
+
+/*#sidebar_itemlist li a:hover{*/
+/*background-color: #cccccc;*/
+/*}*/
+/*#sidebar_heading{*/
+/*font-size: 21px;*/
+/*font-weight: 400;*/
+/*margin: 10px 0px;*/
+/*}*/

@@ -1,0 +1,10 @@
+#aboutussection{
+    /*float: left;*/
+    /*overflow-x: scroll;*/
+    /*width: auto;*/
+    padding-top: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    overflow-y: scroll;
+}

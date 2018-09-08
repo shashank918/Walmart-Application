@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/loginpage_Css.css">
+</head>
+<body>
+
+<!--<h1 class="page-header">-->
+    <!--Smart Portables-->
+<!--</h1>-->
+<section class="page-header">
+    <section class="row">
+        <header >
+
+            <aside id="companyname" class="col-md-5">
+                <a href="#" > Walmart<span id="logoextension">.com</span></a>
+            </aside>
+            <aside id="companycaption" class="col-md-5 col-md-offset-2">
+                The World's largest Retailer
+            </aside>
+
+        </header>
+    </section>
+</section>
+
+    <div class="panel panel-primary " id="formcontainer">
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+            <form method="get" action="logincheck">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" class="form-control">
+                        <option value="customer">Customer</option>
+                        <option value="employee">Employee</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success pull-right">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

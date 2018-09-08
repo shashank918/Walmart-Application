@@ -1,0 +1,108 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Footer</title>-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<link rel="stylesheet" href="footerCss.css">-->
+<!--</head>-->
+<!--<body>-->
+
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3> Contact </h3>
+                    <ul>
+                        <li> <a name="contact_anchor"> +17986543456 </a> </li>
+                        <li> <a href="#"> walmart@gmail.com  </a> </li>
+                        <li> <a href="#"> 3201 Mtcc Building </a> </li>
+                        <li> <a href="#"> Chicago, Illinois </a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3> Important Links </h3>
+                    <ul>
+                        <li> <a href="#"> Sell on walmart </a> </li>
+                        <li> <a href="#"> Advertise with us </a> </li>
+                        <li> <a href="#"> Find a career with us </a> </li>
+                        <li> <a href="#"> Administration </a> </li>
+
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3> Location </h3>
+                    <ul>
+                        <li>  3201 South State Street  </li>
+                        <li>  Mtcc Building  </li>
+                        <li>  Chicago, Illinois  </li>
+                        <li>  United States  </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.foote
+
+    <!--<div class="footer-bottom">-->
+        <!--<div class="container">-->
+            <!--<p class="pull-left"> Copyright © 2017, JKKNIU. All rights reserved.</p>-->
+            <!--<div class="pull-right">-->
+                <!--<ul class="nav nav-pills payments">-->
+                    <!--<li><i class="fa fa-cc-visa"></i></li>-->
+                    <!--<li><i class="fa fa-cc-mastercard"></i></li>-->
+                    <!--<li><i class="fa fa-cc-amex"></i></li>-->
+                    <!--<li><i class="fa fa-cc-paypal"></i></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--/.footer-bottom-->
+</footer>
+
+
+
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+
+            var len = $("#search").val().length;
+
+            console.log("length" + len);
+            if (len === 0) {
+                console.log("Inside If Condition" + len);
+                $('#result').empty();
+            }
+            else {
+                var datastring = "inputval=" + $("#search").val();
+                console.log($("#search").val());
+                   url: "AjaxUtility",
+
+                $.getJSON("AjaxUtility?"+datastring+"", function (data) {
+                    $('#result').html('');
+                    var searchfield = $('#search').val();
+                    var expression = new RegExp(searchfield, "i");
+                    $.each(data, function (key, value) {
+
+                        if (value.name.search(expression) != -1 || value.location.search(expression) != -1) {
+
+                            $('#result').append('<li class= "list-group-item"><a href="productdetailsview?id='+value.id+'"><img src="images/' + value.imgpath + '" height ="40" width="40" class="img-thumbnail"/> ' + value.name + '</a></li>');
+
+                        }
+
+                    })
+             })
+
+            }
+        })
+    })
+</script>

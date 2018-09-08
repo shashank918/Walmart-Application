@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/headerCss.css">
+    <link rel="stylesheet" href="css/footerCss.css">
+    <link rel="stylesheet" href="css/sidebarCss.css">
+    <link rel="stylesheet" href="css/aboutusContent.css">
+    <link rel="stylesheet" href="css/contentCss.css">
+    <!--<link rel="stylesheet" href="viewcartCss.css">-->
+    <!--<link rel="stylesheet" href="trail4css.css">-->
+    <!--<link rel="stylesheet" href="inventorycss.css">-->
+    <!--<link rel="stylesheet" href="search_css.css">-->
+    <!--<link rel="stylesheet" href="productdetailscss.css">-->
+
+    <script>
+        function checkform() {
+
+            var flag = true;
+            console.log("Inside checkform");
+
+            if( document.getElementById("pwd").value!='' && document.getElementById("confirmpwd").value!='')
+            {
+                console.log("Checking password");
+                if(document.getElementById("pwd").value!=document.getElementById("confirmpwd").value)
+                {
+                    alert("your passwords should match");
+                    flag = false;
+                }
+            }
+            else{
+                alert("password cannot be null");
+                flag = false;
+            }
+            return flag;
+        }
+    </script>
+
+</head>
+<body>
+
+
+
+<!--Header Section-->
+<section class="row">
+    <header >
+
+        <aside id="companyname" class="col-md-5">
+            <a href="#" > Walmart<span id="logoextension">.com</span></a>
+        </aside>
+        <aside id="companycaption" class="col-md-5 col-md-offset-2">
+            The World's largest Retailer
+        </aside>
+
+    </header>
+</section>
+
+
+<!--Navbar-->
+
+<div class="row" id="row2">
+    <div class="col-md-12">
+        <div class="navbar navbar-inverse " id="navigation">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="navbar_left">
+                    <li><a href="HomeServlet" class="glyphicon glyphicon-home" id="home"></a></li>
+                    <li><a href="AboutUs" id="about">About Us</a></li>
+                    <li><a href="manageproductsgateway" id="Manageproducts">Manage Products</a></li>
+                    <li><a href="Vieworders" id="ViewOrders">ViewOrders</a></li>
+                    <li><a href="#contact_anchor" id="Contact">Contact US</a></li>
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right" id="navbar_right">
+                    <li><a href="signup.html" id="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="customerRegistration.html" id="login" ><span class="glyphicon glyphicon-log-in"></span> Login/Logout</a></li>
+                    <li><a href="cartview?quantity=1&item_id=5&category=smartwatches" id="cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                </ul>
+                <form class="navbar-form">
+                    <div class="input-group" style="width:350px;">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="list-group" id="result">
+
+                    </ul>
+                </form>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!------------------------------------------Customer Registration logic---------------------------------------------------------------------------->
+
+
+<div class="container col-md-6 col-sm-6 col-ls-6" style="border: 1px solid #f1f1f1; padding: 15px;margin-top: 10px;margin-left: 30%;">
+    <h2 class="text-primary" style="font-weight: 700">Registration form</h2>
+    <form action="Registration" method="get" onsubmit="return checkform();">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Confirm password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmpwd">Comfirm Password:</label>
+            <input type="password" class="form-control" id="confirmpwd" name="confirmpwd" placeholder="Enter Password" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" required>
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" required>
+        </div>
+        <div class="form-group">
+            <label for="country">Zipcode</label>
+            <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode" required>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" required>
+        </div>
+
+        <button type="submit" class="btn btn-success pull-right">Submit</button>
+    </form>
+</div>
+</body>
+</html>
