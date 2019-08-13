@@ -1,0 +1,137 @@
+DROP TABLE cards;
+DROP TABLE customers;
+DROP TABLE Address;
+DROP TABLE Product;
+DROP TABLE staff;
+DROP TABLE ORDERS;
+DROP TABLE store;
+DROP TABLE warehouse;
+DROP TABLE stock;
+DROP TABLE supplier;
+DROP TABLE ProductPricing;
+
+CREATE TABLE customers
+  (
+    customers_id   VARCHAR(3) PRIMARY KEY NOT NULL,
+    customers_name VARCHAR(30),
+    Mail_id       VARCHAR(20) UNIQUE
+  );
+CREATE TABLE cards
+  (
+    card_no         NUMBER(16)  NOT NULL,
+    customers_id     VARCHAR(20),
+    Card_type       VARCHAR2(6),
+    cardholder_name VARCHAR2(30),
+    Expirydate      NUMBER(6),
+    CVV             NUMBER(3),
+    Account_balance NUMBER(10),
+    Pay_address     VARCHAR2(50),
+    Primary Key(customers_id, card_no),
+    Foreign Key(customers_id) references customers
+  );
+
+CREATE TABLE Address
+  (
+    customers_id   varchar(20),
+    Street        VARCHAR2(20),
+    street_no     NUMBER(5),
+    city          VARCHAR2(20),
+    Address_state VARCHAR2(20),
+    zipcode       NUMBER(5),
+    FOREIGN KEY(customers_id) REFERENCES customers
+  );
+CREATE TABLE Product
+  (
+    Prod_id VARCHAR2(20) PRIMARY KEY NOT NULL,
+    Prod_name VARCHAR2(20),
+    Price     NUMBER(5,2),
+    Prod_size NUMBER(5,2),
+    Prod_cat  VARCHAR2(10),
+    Prod_info VARCHAR2(100),
+    Prod_type VARCHAR2(20)
+  );
+CREATE TABLE staff
+  (
+    Staff_id      VARCHAR2(10) NOT NULL,
+    Staff_name    VARCHAR2(20) NOT NULL,
+    salary        NUMBER(10),
+    Staff_address VARCHAR2(50),
+    Designation   VARCHAR2(20) NOT NULL,
+    PRIMARY KEY (Staff_id)
+  );
+  
+  Create Index staffIndex ON staff (staff_id, Staff_name);
+CREATE TABLE ORDERS
+  (
+    Order_id       VARCHAR(20) PRIMARY KEY NOT NULL,
+    Issue_date     DATE,
+    Delivery_date  DATE,
+    Shipto_address VARCHAR2(50),
+    Total_cost     NUMBER(10),
+    Status         VARCHAR2(15)
+  );
+
+CREATE TABLE warehouse
+  (
+    warehouse_id       VARCHAR(20) PRIMARY KEY NOT NULL,
+    warehouse_capacity NUMBER(5),
+    Location_state     VARCHAR2(10)
+  );
+Create Index warehouseIndex ON warehouse(warehouse_id);
+
+
+CREATE TABLE Stock
+  (
+    Prod_id      VARCHAR(20),
+    Warehouse_id VARCHAR(20),
+    Quantity     NUMBER(10),
+    PRIMARY KEY ( Prod_id),
+    FOREIGN KEY (Prod_id) REFERENCES Product,
+    FOREIGN KEY (Warehouse_id) REFERENCES warehouse
+  );
+  
+CREATE TABLE Supplier
+  (
+    Supplier_id VARCHAR(20),
+    Name        VARCHAR(20) NOT NULL,
+    Item        VARCHAR(20) NOT NULL,
+    Address     VARCHAR(256),
+    Price       NUMERIC(5,2),
+    PRIMARY KEY ( Supplier_id)
+  );
+CREATE TABLE store
+  ( 
+  Store_id VARCHAR(20) PRIMARY KEY NOT NULL
+  );
+CREATE TABLE ProductPricing
+  (
+    Prod_id VARCHAR(20),
+    Address VARCHAR(256),
+    Cost    NUMERIC(5,2),
+    PRIMARY KEY (Prod_id,Address),
+    FOREIGN KEY (Prod_id) REFERENCES Product
+  );
+  
+delete from cards;
+delete from customers;
+delete from Address;
+delete from Product;
+delete from staff;
+delete from ORDERS;
+delete from store;
+delete from warehouse;
+delete from stock;
+delete from supplier;
+delete from ProductPricing; 
+
+insert into CUSTOMERS values ('PA2', 'Pranav sai', 'dpranavsai@gmail.com');
+insert into cards values ('1321112345', 'PA2', 'VISA','Pranav Sai','1222','866','5200','Chicago');
+insert into Address values ('PA2', '2951', '29','Chicao','Illinois','60616');
+insert into Product values ('Egg123', 'GreatEggs', '5','2','NonVeg','Eggs','Eatable');
+insert into staff values ('RS203', 'Dheeraj', '500','Chicago','Manager');
+insert into ORDERS values ('Packard', '31-AUG-16', '3-SEP-16','Chicago','550','Delivered');
+insert into store values ('Packard4567');
+insert into warehouse values ('Packard123', '101', 'Chicago');
+insert into stock values ('Egg123', 'Packard123', '500');
+insert into supplier values ('DRC123', 'DheerajRam', 'EGGS','Chicago','500');
+insert into ProductPricing values ('Egg123', 'Chicago', '500');
